@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}Registrar Usuário{% endblock %}
+
+{% block content %}
+<main class="container mt-5">
+    <h1 class="text-center text-primary mb-4">Registrar Usuário</h1>
+    <p class="text-center text-muted">Crie sua conta preenchendo as informações abaixo.</p>
+    
+    <form action="{% url 'registrar-usuario' %}" method="post" class="w-50 mx-auto">
+        {% csrf_token %}
+        
+        <div class="mb-3">
+            <label for="username" class="form-label">Username</label>
+            <input type="text" id="username" name="username" class="form-control" placeholder="Digite seu username" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="senha" class="form-label">Senha</label>
+            <input type="password" id="senha" name="senha" class="form-control" placeholder="Digite sua senha" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="confirmar_senha" class="form-label">Confirmar Senha</label>
+            <input type="password" id="confirmar_senha" name="confirmar_senha" class="form-control" placeholder="Confirme sua senha" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100">Registrar</button>
+    </form>
+</main>
+{% endblock %}
